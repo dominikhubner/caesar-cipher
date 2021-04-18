@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <string.h>
 #include <stdlib.h>
 
-int main(int argc, string argv[])
+char *inputString(FILE* fp, size_t size);
+
+int main(int argc, char *argv[])
 {
     if (argc == 2)
     {
@@ -20,7 +21,9 @@ int main(int argc, string argv[])
         if (r == len)
         {
             int number = atoi(argv[1]);
-            string text = get_string("plaintext: ");
+            char *text;
+            printf("plaintext: ");
+            text = inputString(stdin, 10);
             int length = strlen(text);
             printf("ciphertext: ");
             for (int i = 0; i < length; i++)
@@ -66,4 +69,22 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
+}
+
+char *inputString(FILE* fp, size_t size){
+    char *str;
+    int ch;
+    size_t len = 0;
+    str = realloc(NULL, sizeof(*str)*size);
+    if(!str)return str;
+    while(EOF!=(ch=fgetc(fp)) && ch != '\n'){
+        str[len++]=ch;
+        if(len==size){
+            str = realloc(str, sizeof(*str)*(size+=16));
+            if(!str)return str;
+        }
+    }
+    str[len++]='\0';
+
+    return realloc(str, sizeof(*str)*len);
 }
