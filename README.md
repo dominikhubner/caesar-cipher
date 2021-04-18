@@ -3,7 +3,7 @@ encrypts a text with the caesar code (substitution of a letter by another one fu
 
 compile the code with make:
 ```console
-$ make ./caesar.c
+$ make ./caesar
 ```
 usage:
 ```console
