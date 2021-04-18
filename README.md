@@ -8,6 +8,6 @@ $ make ./caesar.c
 usage:
 ```console
 $ ./caesar [number of shifts in the alphabet]
-plaintext: [your text]
-ciphertext: [output]
+$ plaintext: [your text]
+$ ciphertext: [output]
 ```
