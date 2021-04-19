@@ -57,6 +57,7 @@ int main(int argc, char *argv[])
                 printf("%c", c);
             }
             printf("\n");
+            free(text);
         }
         else
         {
@@ -69,6 +70,7 @@ int main(int argc, char *argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
+    
 }
 
 char *inputString(FILE* fp, size_t size){
