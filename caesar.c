@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     
 }
 
-char *inputString(FILE* fp, size_t size){
+char *inputString(FILE* fp, size_t size){   //source: https://stackoverflow.com/a/16871702/12313613
     char *str;
     int ch;
     size_t len = 0;
